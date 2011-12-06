@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.tulonsae.mc</groupId>
+  <artifactId>TulSys</artifactId>
+  <version>0.1-dev</version>
+  <packaging>jar</packaging>
+
+  <name>TulSys</name>
+  <description>World and system changes for Bukkit server.</description>
+  <url>https://github.com/Tulonsae/TulSys</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.number>1</project.build.number>
+    <project.plugin.author>Tulonsae</project.plugin.author>
+    <project.plugin.depend></project.plugin.depend>
+    <project.plugin.main>${project.groupId}.${project.name}</project.plugin.main>
+    <project.plugin.version>${project.version}-${project.build.number}</project.plugin.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/artifactory/repo</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>1.0.0-R1-SNAPSHOT</version>
+      <type>jar</type>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>${basedir}/src/main/resources/</directory>
+        <includes>
+          <include>plugin.yml</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+</project>

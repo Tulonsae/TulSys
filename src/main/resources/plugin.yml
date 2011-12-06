@@ -1,0 +1,4 @@
+name: ${project.name}
+main: ${project.plugin.main}
+author: ${project.plugin.author}
+version: ${project.plugin.version}
