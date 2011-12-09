@@ -1,7 +1,11 @@
 package org.tulonsae.mc;
 
+import java.io.File;
+
 import org.tulonsae.mc.util.Log;
 
+import org.bukkit.configuration.file.FileConfiguration;
+//import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -11,8 +15,12 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class TulSys extends JavaPlugin {
 
+    // Plugin information: name, version, config
     private String name;
     private String version;
+    private FileConfiguration config;
+
+    // Log file
     private Log log;
 
     /**
@@ -27,8 +35,14 @@ public class TulSys extends JavaPlugin {
 
         // setup main logger
         log = new Log(name);
+
+        // log enabling message
+        log.info("enabling version " + version + ".");
+
+        // load configuration
+        loadConfig();
         
-        // log enable message
+        // log enabled message
         log.info("version " + version + " enabled.");
     }
 
@@ -36,8 +50,23 @@ public class TulSys extends JavaPlugin {
      * Called when this plugin is disabled.
      */
     public void onDisable() {
+
+        // log disabling message
+        log.info("disabling version " + version + ".");
+
+        // save configuration
+        saveConfig();
         
-        // log disable message
+        // log disabled message
         log.info("version " + version + " disabled.");
+    }
+
+    /**
+     * Loads the plugin configuration file.
+     * Creates a new one if it doesn't exist. TODO
+     * Creates new default entries if they don't exist. TODO
+     */
+    private void loadConfig() {
+        config = getConfig();
     }
 }
