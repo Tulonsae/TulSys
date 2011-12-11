@@ -1,7 +1,4 @@
-stats:
-    database:
-        username: "name"
-        host: "localhost:3306"
-        type: "mysql"
-        password: "password"
-        database: "db"
+kit:
+  enabled: false
+cauldron:
+  enabled: false

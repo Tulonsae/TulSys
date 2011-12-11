@@ -18,7 +18,6 @@ public class TulSys extends JavaPlugin {
     // Plugin information: name, version, config
     private String name;
     private String version;
-//    private FileConfiguration config;
 
     // Log file
     private Log log;
@@ -40,8 +39,7 @@ public class TulSys extends JavaPlugin {
         log.info("enabling version " + version + ".");
 
         // load configuration
-        getConfig().options().copyDefaults();
-//        loadConfig();
+        getConfig().options().copyDefaults(true);
         saveConfig();
         
         // log enabled message
@@ -62,13 +60,4 @@ public class TulSys extends JavaPlugin {
         // log disabled message
         log.info("version " + version + " disabled.");
     }
-
-    /**
-     * Loads the plugin configuration file.
-     * Creates a new one if it doesn't exist. TODO
-     * Creates new default entries if they don't exist. TODO
-     */
-//    private void loadConfig() {
-//        config = getConfig();
-//    }
 }
