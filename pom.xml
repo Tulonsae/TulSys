@@ -13,7 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.number>2</project.build.number>
+    <project.build.number>3</project.build.number>
     <project.plugin.author>Tulonsae</project.plugin.author>
     <project.plugin.depend></project.plugin.depend>
     <project.plugin.main>${project.groupId}.${project.name}</project.plugin.main>
