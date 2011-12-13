@@ -44,11 +44,17 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>target/src</sourceDirectory>
     <resources>
       <resource>
-        <targetPath>.</targetPath>
         <filtering>true</filtering>
+        <targetPath>.</targetPath>
         <directory>${basedir}/src/main/resources/</directory>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <targetPath>../src</targetPath>
+        <directory>${basedir}/src/main/java/</directory>
       </resource>
     </resources>
   </build>

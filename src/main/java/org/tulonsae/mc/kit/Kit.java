@@ -11,9 +11,13 @@ import org.tulonsae.mc.util.Log;
  */
 public class Kit {
 
-    // Component information: name
+    // Component information: name, commands
     private String name = Constants.KIT_NAME;
+    private String kitCmd = Constants.KIT_CMD_HELP;
     private String kitCmdGet = Constants.KIT_CMD_GET;
+    private String kitCmdGive = Constants.KIT_CMD_GIVE;
+    private String kitCmdList = Constants.KIT_CMD_LIST;
+    private String kitCmdAdmin = Constants.KIT_CMD_ADMIN;
 
     // Log file
     private Log log;
@@ -37,6 +41,10 @@ public class Kit {
 
         // register commands
         log.info("registering commands");
+        plugin.getCommand(kitCmd).setExecutor(new KitCommands(plugin, log));
         plugin.getCommand(kitCmdGet).setExecutor(new KitCommands(plugin, log));
+        plugin.getCommand(kitCmdGive).setExecutor(new KitCommands(plugin, log));
+        plugin.getCommand(kitCmdList).setExecutor(new KitCommands(plugin, log));
+        plugin.getCommand(kitCmdAdmin).setExecutor(new KitCommands(plugin, log));
     }
 }

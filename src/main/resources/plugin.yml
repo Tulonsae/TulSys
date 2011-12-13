@@ -5,22 +5,26 @@ version: ${project.plugin.version}
 
 commands:
   ${kit.cmd.help}:
-    description: help command
+    aliases: kithelp
+    description: Command for displaying help.  Player and console use.
     permission: tbd
-    usage: /<command>
+    usage: /<command> - help list HERE
   ${kit.cmd.get}:
-    description: get command
+    aliases: getkit
+    description: Command to give kits to yourself.  Player use only.
     permission: tbd
-    usage: /<command>
+    usage: /<command> kitname [...] - give yourself named kits, if available and enough inventory space
   ${kit.cmd.list}:
-    description: list command
+    aliases: [kits, listkit, listkits]
+    description: Command to list your kits. Player and console use.
     permission: tbd
-    usage: /<command>
+    usage: /<command> - list your kits and their availability
   ${kit.cmd.give}:
-    description: give command
+    description: Command to give kits to others.  Player and console use.
     permission: tbd
-    usage: /<command>
+    usage: /<command> playername kitname [...] - give another player the named kits
   ${kit.cmd.admin}:
-    description: admin command
+    aliases: kitadm
+    description: Commands for managing kits.  Player and console use.
     permission: tbd
-    usage: /<command>
+    usage: /<command> tbd

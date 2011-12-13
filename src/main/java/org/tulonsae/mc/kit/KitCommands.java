@@ -15,8 +15,13 @@ import org.bukkit.command.CommandSender;
  */
 public class KitCommands implements CommandExecutor {
 
-    // Component information: name
+    // Component information: name, commands
     private String name = Constants.KIT_NAME;
+    private String kitCmd = Constants.KIT_CMD_HELP;
+    private String kitCmdGet = Constants.KIT_CMD_GET;
+    private String kitCmdGive = Constants.KIT_CMD_GIVE;
+    private String kitCmdList = Constants.KIT_CMD_LIST;
+    private String kitCmdAdmin = Constants.KIT_CMD_ADMIN;
 
     // Log file
     private Log log;
@@ -36,10 +41,38 @@ public class KitCommands implements CommandExecutor {
      * Execute kit component commands.
      */
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Log log = new Log(plugin.getDescription().getName(), Constants.KIT_NAME);
-        log.info("Got here");
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        // help command
+        if (cmd.getName().equalsIgnoreCase(kitCmd)) {
+            log.info("tbd - Execute kit help command");
+            return true;
+        }
 
+        // get command
+        if (cmd.getName().equalsIgnoreCase(kitCmdGet)) {
+            log.info("tbd - Execute kit get command");
+            return true;
+        }
+
+        // give command
+        if (cmd.getName().equalsIgnoreCase(kitCmdGive)) {
+            log.info("tbd - Execute kit give command");
+            return true;
+        }
+
+        // list command
+        if (cmd.getName().equalsIgnoreCase(kitCmdList)) {
+            log.info("tbd - Execute kit list command");
+            return true;
+        }
+
+        // admin command
+        if (cmd.getName().equalsIgnoreCase(kitCmdAdmin)) {
+            log.info("tbd - Execute kit admin command");
+            return true;
+        }
+
+        // command not found
         return false;
     }
 }
