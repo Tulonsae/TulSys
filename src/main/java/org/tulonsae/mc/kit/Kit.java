@@ -13,7 +13,7 @@ public class Kit {
 
     // Component information: name
     private String name = Constants.KIT_NAME;
-    private String kitCmd = Constants.KIT_CMD;
+    private String kitCmdGet = Constants.KIT_CMD_GET;
 
     // Log file
     private Log log;
@@ -37,6 +37,6 @@ public class Kit {
 
         // register commands
         log.info("registering commands");
-        //plugin.getCommand(kitCmd).setExecutor(new KitCommands(plugin, log));
+        plugin.getCommand(kitCmdGet).setExecutor(new KitCommands(plugin, log));
     }
 }

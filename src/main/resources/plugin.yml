@@ -2,3 +2,25 @@ name: ${project.name}
 main: ${project.plugin.main}
 author: ${project.plugin.author}
 version: ${project.plugin.version}
+
+commands:
+  ${kit.cmd.help}:
+    description: help command
+    permission: tbd
+    usage: /<command>
+  ${kit.cmd.get}:
+    description: get command
+    permission: tbd
+    usage: /<command>
+  ${kit.cmd.list}:
+    description: list command
+    permission: tbd
+    usage: /<command>
+  ${kit.cmd.give}:
+    description: give command
+    permission: tbd
+    usage: /<command>
+  ${kit.cmd.admin}:
+    description: admin command
+    permission: tbd
+    usage: /<command>

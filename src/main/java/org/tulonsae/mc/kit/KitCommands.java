@@ -25,7 +25,7 @@ public class KitCommands implements CommandExecutor {
     private TulSys plugin;
 
     /**
-     * Constructor passes in the plugin itself.
+     * Constructor passes in the plugin and component log.
      */
     public KitCommands(TulSys instance, Log componentLog) {
         plugin = instance;
@@ -37,8 +37,9 @@ public class KitCommands implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Log log = new Log(plugin.getDescription().getName(), Constants.KIT_NAME);
         log.info("Got here");
 
-        return true;
+        return false;
     }
 }
