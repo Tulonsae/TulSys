@@ -68,11 +68,35 @@ public class KitCommands implements CommandExecutor {
 
         // admin command
         if (cmd.getName().equalsIgnoreCase(kitCmdAdmin)) {
-            log.info("tbd - Execute kit admin command");
-            return true;
+            log.info("Executing kit admin command");
+
+            if (args[0].equalsIgnoreCase("add")) {
+                // parse args
+                String kitInfo = parseKitArgs(args);
+                log.info(kitInfo);
+                return true;
+            }
+
+            // command not recognized
+            return false;
         }
 
         // command not found
         return false;
+    }
+
+    /**
+     * Parse command lines args for kit admin command.
+     */
+    private String parseKitArgs(String[] args) {
+        StringBuilder buf = new StringBuilder();
+
+        // combine args into a string
+        for (int i = 1; i < args.length; i++) {
+             buf.append(" " + args[i]);
+        }
+
+        // return args as string
+        return buf.toString();
     }
 }
