@@ -9,7 +9,7 @@ import org.tulonsae.mc.util.Log;
  *
  * @author Tulonsae
  */
-public class Kit {
+public class KitComponent {
 
     // Component information: name, commands
     private String name = Constants.KIT_NAME;
@@ -28,7 +28,7 @@ public class Kit {
     /**
      * Constructor passes in the plugin itself.
      */
-    public Kit(TulSys instance) {
+    public KitComponent(TulSys instance) {
         plugin = instance;
     }
 

@@ -2,7 +2,7 @@ package org.tulonsae.mc;
 
 import java.io.File;
 
-import org.tulonsae.mc.kit.Kit;
+import org.tulonsae.mc.kit.KitComponent;
 import org.tulonsae.mc.util.Log;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -50,7 +50,7 @@ public class TulSys extends JavaPlugin {
             log.info(Constants.KIT_NAME + " component on.");
 
             // initialize kit component
-            Kit kitComponent = new Kit(this);
+            KitComponent kitComponent = new KitComponent(this);
             kitComponent.init();
         } else {
             log.info(Constants.KIT_NAME + " component off.");
