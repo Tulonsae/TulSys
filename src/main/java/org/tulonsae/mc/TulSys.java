@@ -5,7 +5,6 @@ import java.io.File;
 import org.tulonsae.mc.kit.KitComponent;
 import org.tulonsae.mc.util.Log;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
