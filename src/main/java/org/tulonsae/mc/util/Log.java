@@ -27,7 +27,7 @@ public class Log {
      * Log constructor for component.
      */
     public Log(String pluginName, String componentName) {
-        this.prefix = "[" + pluginName + "]" + ":" + componentName;
+        this.prefix = "[" + pluginName + ":" + componentName + "]";
     }
 
     /**

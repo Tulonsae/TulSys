@@ -70,10 +70,27 @@ public class KitCommands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase(kitCmdAdmin)) {
             log.info("Executing kit admin command");
 
-            if (args[0].equalsIgnoreCase("add")) {
-                // parse args
-                String kitInfo = parseKitArgs(args);
-                log.info(kitInfo);
+            // print usage if less than required number of args
+            // (subcommand and kit name)
+            if (args.length < 2) {
+                return false;
+            }
+
+            if (args[0].equalsIgnoreCase("new")) {
+                String kitName = args[1].toLowerCase();
+
+                // check if kit name exists
+
+                // create kit, with defaults
+                Kit kit = new Kit(kitName);
+
+                // list kit info
+                log.info("Created kit " + kit.getName() + " with "
+                            + "frequency(" + kit.getFreqDisplay() + ") "
+                            + "repeatable(" + kit.isRepeatable() + ") "
+                            + "conditional(" + kit.isConditional() + ") "
+                            + "and no items or description.");
+
                 return true;
             }
 
@@ -83,20 +100,5 @@ public class KitCommands implements CommandExecutor {
 
         // command not found
         return false;
-    }
-
-    /**
-     * Parse command lines args for kit admin command.
-     */
-    private String parseKitArgs(String[] args) {
-        StringBuilder buf = new StringBuilder();
-
-        // combine args into a string
-        for (int i = 1; i < args.length; i++) {
-             buf.append(" " + args[i]);
-        }
-
-        // return args as string
-        return buf.toString();
     }
 }

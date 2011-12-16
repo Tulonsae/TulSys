@@ -27,4 +27,7 @@ commands:
     aliases: kitadm
     description: Commands for managing kits.  Player and console use.
     permission: tbd
-    usage: /<command> tbd
+    usage: |
+        /<command> new kit_name
+        /<command> add kit_name [num *] item [, [num *] item] ...
+        /<command> tbd
