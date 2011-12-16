@@ -38,7 +38,7 @@ public class Kit {
     private Integer freqWeek = 7 * freqDay;
 
     /**
-     * Create a new kit with default values.
+     * Create a kit with default values.
      */
     public Kit(String kitName) {
         name = kitName;
@@ -68,9 +68,9 @@ public class Kit {
     }
 
     /**
-     * Store kit info into config.
+     * Save kit info (into config).
      */
-    public void setConfig(TulSys plugin) {
+    public void save(TulSys plugin) {
         String cfgName = kitCfg + cfgSep + kitCfgList + cfgSep + getName();
         String cfgRept = cfgName + cfgSep + kitCfgRept;
         String cfgCond = cfgName + cfgSep + kitCfgCond;
@@ -81,6 +81,27 @@ public class Kit {
         plugin.getConfig().set(cfgFreq, getFrequency());
         plugin.getConfig().set(cfgRept, isRepeatable());
         plugin.getConfig().set(cfgCond, isConditional());
+
+        plugin.saveConfig();
+    }
+
+    /**
+     * Load kit info (from config).
+     * Kit name is handled by the constructor.
+     */
+    public void load(TulSys plugin) {
+        String cfgName = kitCfg + cfgSep + kitCfgList + cfgSep + getName();
+        String cfgRept = cfgName + cfgSep + kitCfgRept;
+        String cfgCond = cfgName + cfgSep + kitCfgCond;
+        String cfgDesc = cfgName + cfgSep + kitCfgDesc;
+        String cfgFreq = cfgName + cfgSep + kitCfgFreq;
+
+        // load data
+        // TBD - ? add defaults, if no value ?
+        setDescription(plugin.getConfig().getString(cfgDesc));
+        setRepeatable(plugin.getConfig().getBoolean(cfgRept));
+        setConditional(plugin.getConfig().getBoolean(cfgCond));
+        setFrequency(plugin.getConfig().getInt(cfgFreq));
     }
 
     /**
