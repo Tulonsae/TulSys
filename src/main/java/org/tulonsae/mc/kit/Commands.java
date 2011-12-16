@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
  *
  * @author Tulonsae
  */
-public class KitCommands implements CommandExecutor {
+public class Commands implements CommandExecutor {
 
     // Component information: commands
     private static String kitCmd = Constants.KIT_CMD_HELP;
@@ -31,7 +31,7 @@ public class KitCommands implements CommandExecutor {
     /**
      * Constructor passes in the plugin and component log.
      */
-    public KitCommands(TulSys instance, Log componentLog) {
+    public Commands(TulSys instance, Log componentLog) {
         plugin = instance;
         log = componentLog;
     }

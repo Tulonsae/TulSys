@@ -41,10 +41,10 @@ public class KitComponent {
 
         // register commands
         log.info("registering commands");
-        plugin.getCommand(kitCmd).setExecutor(new KitCommands(plugin, log));
-        plugin.getCommand(kitCmdGet).setExecutor(new KitCommands(plugin, log));
-        plugin.getCommand(kitCmdGive).setExecutor(new KitCommands(plugin, log));
-        plugin.getCommand(kitCmdList).setExecutor(new KitCommands(plugin, log));
-        plugin.getCommand(kitCmdAdmin).setExecutor(new KitCommands(plugin, log));
+        plugin.getCommand(kitCmd).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(kitCmdGet).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(kitCmdGive).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(kitCmdList).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(kitCmdAdmin).setExecutor(new Commands(plugin, log));
     }
 }
