@@ -15,8 +15,7 @@ import org.bukkit.command.CommandSender;
  */
 public class KitCommands implements CommandExecutor {
 
-    // Component information: name, commands
-    private String name = Constants.KIT_NAME;
+    // Component information: commands
     private String kitCmd = Constants.KIT_CMD_HELP;
     private String kitCmdGet = Constants.KIT_CMD_GET;
     private String kitCmdGive = Constants.KIT_CMD_GIVE;
@@ -66,7 +65,7 @@ public class KitCommands implements CommandExecutor {
             return true;
         }
 
-        // admin command
+        // admin commands
         if (cmd.getName().equalsIgnoreCase(kitCmdAdmin)) {
             log.info("Executing kit admin command");
 
@@ -90,6 +89,10 @@ public class KitCommands implements CommandExecutor {
                             + "repeatable(" + kit.isRepeatable() + ") "
                             + "conditional(" + kit.isConditional() + ") "
                             + "and no items or description.");
+
+                // store the values into the config
+                kit.setConfig(plugin);
+                plugin.saveConfig();
 
                 return true;
             }

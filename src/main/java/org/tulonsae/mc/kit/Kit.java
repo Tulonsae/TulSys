@@ -2,12 +2,23 @@ package org.tulonsae.mc.kit;
 
 import java.util.List;
 
+import org.tulonsae.mc.Constants;
+import org.tulonsae.mc.TulSys;
+
 /**
  * Class representing a kit.
  *
  * @author Tulonsae
  */
 public class Kit {
+    // Kit config strings
+    private String cfgSep = Constants.CFG_SEP;
+    private String kitCfg = Constants.KIT_CFG_SECT;
+    private String kitCfgList = Constants.KIT_CFG_LIST;
+    private String kitCfgRept = Constants.KIT_CFG_REPT;
+    private String kitCfgCond = Constants.KIT_CFG_COND;
+    private String kitCfgDesc = Constants.KIT_CFG_DESC;
+    private String kitCfgFreq = Constants.KIT_CFG_FREQ;
 
     // Kit data structure.
     private String name;
@@ -35,6 +46,22 @@ public class Kit {
         description = null;
         setFrequency(86400);		// default is 1 day
         setItems(null);
+    }
+
+    /**
+     * Store kit info into config.
+     */
+    public void setConfig(TulSys plugin) {
+        String cfgName = kitCfg + cfgSep + kitCfgList + cfgSep + getName();
+        String cfgRept = cfgName + cfgSep + kitCfgRept;
+        String cfgCond = cfgName + cfgSep + kitCfgCond;
+        String cfgDesc = cfgName + cfgSep + kitCfgDesc;
+        String cfgFreq = cfgName + cfgSep + kitCfgFreq;
+
+        plugin.getConfig().set(cfgDesc, getDescription());
+        plugin.getConfig().set(cfgFreq, getFrequency());
+        plugin.getConfig().set(cfgRept, isRepeatable());
+        plugin.getConfig().set(cfgCond, isConditional());
     }
 
     /**

@@ -44,7 +44,7 @@ public class TulSys extends JavaPlugin {
         saveConfig();
 
         // load kit component
-        String kit_flag = Constants.KIT_SECTION + Constants.CFG_SEP + Constants.CFG_FLAG;
+        String kit_flag = Constants.KIT_CFG_SECT + Constants.CFG_SEP + Constants.CFG_FLAG;
         checkBooleanConfigValue(kit_flag);
         if (getConfig().getBoolean(kit_flag)) {
             log.info(Constants.KIT_NAME + " component on.");
