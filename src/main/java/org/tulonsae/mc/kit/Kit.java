@@ -1,6 +1,7 @@
 package org.tulonsae.mc.kit;
 
 import java.util.List;
+import java.util.Set;
 
 import org.tulonsae.mc.Constants;
 import org.tulonsae.mc.TulSys;
@@ -12,13 +13,13 @@ import org.tulonsae.mc.TulSys;
  */
 public class Kit {
     // Kit config strings
-    private String cfgSep = Constants.CFG_SEP;
-    private String kitCfg = Constants.KIT_CFG_SECT;
-    private String kitCfgList = Constants.KIT_CFG_LIST;
-    private String kitCfgRept = Constants.KIT_CFG_REPT;
-    private String kitCfgCond = Constants.KIT_CFG_COND;
-    private String kitCfgDesc = Constants.KIT_CFG_DESC;
-    private String kitCfgFreq = Constants.KIT_CFG_FREQ;
+    private static String cfgSep = Constants.CFG_SEP;
+    private static String kitCfg = Constants.KIT_CFG_SECT;
+    private static String kitCfgList = Constants.KIT_CFG_LIST;
+    private static String kitCfgRept = Constants.KIT_CFG_REPT;
+    private static String kitCfgCond = Constants.KIT_CFG_COND;
+    private static String kitCfgDesc = Constants.KIT_CFG_DESC;
+    private static String kitCfgFreq = Constants.KIT_CFG_FREQ;
 
     // Kit data structure.
     private String name;
@@ -46,6 +47,24 @@ public class Kit {
         description = null;
         setFrequency(86400);		// default is 1 day
         setItems(null);
+    }
+
+    /**
+     * Check if kit exists.
+     */
+    public static Boolean exists(TulSys plugin, String kitName) {
+        String cfgSection = kitCfg + cfgSep + kitCfgList;
+
+        // gets just the kit names
+        Set<String> keys = plugin.getConfig().getConfigurationSection(cfgSection).getKeys(false);
+
+        // check for the kit
+        if (keys.contains(kitName)) {
+            return true;
+        }
+
+        // kit string path not found
+        return false;
     }
 
     /**

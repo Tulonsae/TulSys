@@ -16,11 +16,11 @@ import org.bukkit.command.CommandSender;
 public class KitCommands implements CommandExecutor {
 
     // Component information: commands
-    private String kitCmd = Constants.KIT_CMD_HELP;
-    private String kitCmdGet = Constants.KIT_CMD_GET;
-    private String kitCmdGive = Constants.KIT_CMD_GIVE;
-    private String kitCmdList = Constants.KIT_CMD_LIST;
-    private String kitCmdAdmin = Constants.KIT_CMD_ADMIN;
+    private static String kitCmd = Constants.KIT_CMD_HELP;
+    private static String kitCmdGet = Constants.KIT_CMD_GET;
+    private static String kitCmdGive = Constants.KIT_CMD_GIVE;
+    private static String kitCmdList = Constants.KIT_CMD_LIST;
+    private static String kitCmdAdmin = Constants.KIT_CMD_ADMIN;
 
     // Log file
     private Log log;
@@ -79,6 +79,10 @@ public class KitCommands implements CommandExecutor {
                 String kitName = args[1].toLowerCase();
 
                 // check if kit name exists
+                if (Kit.exists(plugin, kitName)) {
+                    log.info("Kit " + kitName + " already exists.");
+                    return true;
+                }
 
                 // create kit, with defaults
                 Kit kit = new Kit(kitName);
