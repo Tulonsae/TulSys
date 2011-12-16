@@ -76,29 +76,7 @@ public class KitCommands implements CommandExecutor {
             }
 
             if (args[0].equalsIgnoreCase("new")) {
-                String kitName = args[1].toLowerCase();
-
-                // check if kit name exists
-                if (Kit.exists(plugin, kitName)) {
-                    log.info("Kit " + kitName + " already exists.");
-                    return true;
-                }
-
-                // create kit, with defaults
-                Kit kit = new Kit(kitName);
-
-                // list kit info
-                log.info("Created kit " + kit.getName() + " with "
-                            + "frequency(" + kit.getFreqDisplay() + ") "
-                            + "repeatable(" + kit.isRepeatable() + ") "
-                            + "conditional(" + kit.isConditional() + ") "
-                            + "and no items or description.");
-
-                // store the values into the config
-                kit.setConfig(plugin);
-                plugin.saveConfig();
-
-                return true;
+                return execKitadmNew(args[1].toLowerCase());
             }
 
             // command not recognized
@@ -107,5 +85,33 @@ public class KitCommands implements CommandExecutor {
 
         // command not found
         return false;
+    }
+
+    /**
+     * Execute kit admin new command.
+     */
+    private Boolean execKitadmNew(String kitName) {
+        // check if kit name exists
+        if (Kit.exists(plugin, kitName)) {
+            log.info("Kit " + kitName + " already exists.");
+            return true;
+        }
+
+        // create kit, with defaults
+        Kit kit = new Kit(kitName);
+
+        // list kit info
+        log.info("Created kit " + kit.getName() + " with "
+                    + "frequency(" + kit.getFreqDisplay() + ") "
+                    + "repeatable(" + kit.isRepeatable() + ") "
+                    + "conditional(" + kit.isConditional() + ") "
+                    + "and no items or description.");
+
+        // store the values into the config
+        kit.setConfig(plugin);
+        plugin.saveConfig();
+
+        // command completed
+        return true;
     }
 }
