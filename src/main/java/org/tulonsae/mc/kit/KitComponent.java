@@ -1,6 +1,5 @@
 package org.tulonsae.mc.kit;
 
-import org.tulonsae.mc.Constants;
 import org.tulonsae.mc.TulSys;
 import org.tulonsae.mc.util.Log;
 
@@ -12,7 +11,7 @@ import org.tulonsae.mc.util.Log;
 public class KitComponent {
 
     // Component information: name, commands
-    private String name = Constants.KIT_NAME;
+    private String name = Constants.NAME;
     private String kitCmd = Constants.KIT_CMD_HELP;
     private String kitCmdGet = Constants.KIT_CMD_GET;
     private String kitCmdGive = Constants.KIT_CMD_GIVE;
@@ -30,6 +29,13 @@ public class KitComponent {
      */
     public KitComponent(TulSys instance) {
         plugin = instance;
+    }
+
+    /**
+     * Get component name.
+     */
+    public static final String getName() {
+        return Constants.NAME;
     }
 
     /**

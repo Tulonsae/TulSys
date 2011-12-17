@@ -1,4 +1,5 @@
-kit:
-  enabled: false
-cauldron:
-  enabled: false
+${cfg.sect.comp.string}:
+  ${cfg.comment.string}: component is true if enabled, false if disabled
+  ${cfg.comp.kit.string}: false
+${cfg.sect.kit.string}:
+  description: Kit component

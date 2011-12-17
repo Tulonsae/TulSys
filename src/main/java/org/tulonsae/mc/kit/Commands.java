@@ -1,6 +1,5 @@
 package org.tulonsae.mc.kit;
 
-import org.tulonsae.mc.Constants;
 import org.tulonsae.mc.TulSys;
 import org.tulonsae.mc.util.Log;
 

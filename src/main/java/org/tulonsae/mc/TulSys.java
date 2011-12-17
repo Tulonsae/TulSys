@@ -23,7 +23,7 @@ public class TulSys extends JavaPlugin {
 
     /**
      * Called when this plugin is enabled.
-     * Loads the configuration and registers for Bukkit events.
+     * Loads the configuration, registers for Bukkit events.
      */
     @Override
     public void onEnable() {
@@ -43,16 +43,16 @@ public class TulSys extends JavaPlugin {
         saveConfig();
 
         // load kit component
-        String kit_flag = Constants.KIT_CFG_SECT + Constants.CFG_SEP + Constants.CFG_FLAG;
-        checkBooleanConfigValue(kit_flag);
-        if (getConfig().getBoolean(kit_flag)) {
-            log.info(Constants.KIT_NAME + " component on.");
+        String kitFlag = Constants.CFG_COMP_KIT;
+        checkBooleanConfigValue(kitFlag);
+        if (getConfig().getBoolean(kitFlag)) {
+            log.info(KitComponent.getName() + " component on.");
 
             // initialize kit component
             KitComponent kitComponent = new KitComponent(this);
             kitComponent.init();
         } else {
-            log.info(Constants.KIT_NAME + " component off.");
+            log.info(KitComponent.getName() + " component off.");
         }
 
         // log enabled message

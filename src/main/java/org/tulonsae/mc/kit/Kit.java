@@ -3,7 +3,6 @@ package org.tulonsae.mc.kit;
 import java.util.List;
 import java.util.Set;
 
-import org.tulonsae.mc.Constants;
 import org.tulonsae.mc.TulSys;
 
 /**
@@ -12,14 +11,6 @@ import org.tulonsae.mc.TulSys;
  * @author Tulonsae
  */
 public class Kit {
-    // Kit config strings
-    private static String cfgSep = Constants.CFG_SEP;
-    private static String kitCfg = Constants.KIT_CFG_SECT;
-    private static String kitCfgList = Constants.KIT_CFG_LIST;
-    private static String kitCfgRept = Constants.KIT_CFG_REPT;
-    private static String kitCfgCond = Constants.KIT_CFG_COND;
-    private static String kitCfgDesc = Constants.KIT_CFG_DESC;
-    private static String kitCfgFreq = Constants.KIT_CFG_FREQ;
 
     // Kit data structure.
     private String name;
@@ -53,7 +44,7 @@ public class Kit {
      * Check if kit exists.
      */
     public static Boolean exists(TulSys plugin, String kitName) {
-        String cfgSection = kitCfg + cfgSep + kitCfgList;
+        String cfgSection = Constants.CFG_KITS_PATH;
 
         // gets just the kit names
         Set<String> keys = plugin.getConfig().getConfigurationSection(cfgSection).getKeys(false);
@@ -71,11 +62,11 @@ public class Kit {
      * Save kit info (into config).
      */
     public void save(TulSys plugin) {
-        String cfgName = kitCfg + cfgSep + kitCfgList + cfgSep + getName();
-        String cfgRept = cfgName + cfgSep + kitCfgRept;
-        String cfgCond = cfgName + cfgSep + kitCfgCond;
-        String cfgDesc = cfgName + cfgSep + kitCfgDesc;
-        String cfgFreq = cfgName + cfgSep + kitCfgFreq;
+        String cfgName = Constants.CFG_KITS_PATH + Constants.CFG_SEP + getName();
+        String cfgRept = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_REPT;
+        String cfgCond = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_COND;
+        String cfgDesc = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_DESC;
+        String cfgFreq = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_FREQ;
 
         plugin.getConfig().set(cfgDesc, getDescription());
         plugin.getConfig().set(cfgFreq, getFrequency());
@@ -90,11 +81,11 @@ public class Kit {
      * Kit name is handled by the constructor.
      */
     public void load(TulSys plugin) {
-        String cfgName = kitCfg + cfgSep + kitCfgList + cfgSep + getName();
-        String cfgRept = cfgName + cfgSep + kitCfgRept;
-        String cfgCond = cfgName + cfgSep + kitCfgCond;
-        String cfgDesc = cfgName + cfgSep + kitCfgDesc;
-        String cfgFreq = cfgName + cfgSep + kitCfgFreq;
+        String cfgName = Constants.CFG_KITS_PATH + Constants.CFG_SEP + getName();
+        String cfgRept = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_REPT;
+        String cfgCond = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_COND;
+        String cfgDesc = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_DESC;
+        String cfgFreq = cfgName + Constants.CFG_SEP + Constants.CFG_KIT_FREQ;
 
         // load data
         // TBD - ? add defaults, if no value ?
