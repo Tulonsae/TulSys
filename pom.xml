@@ -13,16 +13,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.number>5</project.build.number>
+    <project.build.number>6</project.build.number>
     <project.plugin.author>Tulonsae</project.plugin.author>
     <project.plugin.depend></project.plugin.depend>
     <project.plugin.main>${project.groupId}.${project.name}</project.plugin.main>
     <project.plugin.version>${project.version}-${project.build.number}</project.plugin.version>
-    <kit.cmd.help>kit</kit.cmd.help>
-    <kit.cmd.get>kitget</kit.cmd.get>
-    <kit.cmd.list>kitlist</kit.cmd.list>
-    <kit.cmd.give>kitgive</kit.cmd.give>
-    <kit.cmd.admin>kitadmin</kit.cmd.admin>
   </properties>
 
   <repositories>

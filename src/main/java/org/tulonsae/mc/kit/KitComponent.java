@@ -10,14 +10,6 @@ import org.tulonsae.mc.util.Log;
  */
 public class KitComponent {
 
-    // Component information: name, commands
-    private String name = Constants.NAME;
-    private String kitCmd = Constants.KIT_CMD_HELP;
-    private String kitCmdGet = Constants.KIT_CMD_GET;
-    private String kitCmdGive = Constants.KIT_CMD_GIVE;
-    private String kitCmdList = Constants.KIT_CMD_LIST;
-    private String kitCmdAdmin = Constants.KIT_CMD_ADMIN;
-
     // Log file
     private Log log;
 
@@ -43,14 +35,16 @@ public class KitComponent {
      */
     public void init() {
         // setup component logger
-        log = new Log(plugin.getDescription().getName(), name);
+        log = new Log(plugin.getDescription().getName(), getName());
 
         // register commands
         log.info("registering commands");
-        plugin.getCommand(kitCmd).setExecutor(new Commands(plugin, log));
-        plugin.getCommand(kitCmdGet).setExecutor(new Commands(plugin, log));
-        plugin.getCommand(kitCmdGive).setExecutor(new Commands(plugin, log));
-        plugin.getCommand(kitCmdList).setExecutor(new Commands(plugin, log));
-        plugin.getCommand(kitCmdAdmin).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_HELP).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_GET).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_GIVE).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_LIST).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_MGR_HELP).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_MGR_NEW).setExecutor(new Commands(plugin, log));
+        plugin.getCommand(Constants.KIT_CMD_MGR_DESC).setExecutor(new Commands(plugin, log));
     }
 }

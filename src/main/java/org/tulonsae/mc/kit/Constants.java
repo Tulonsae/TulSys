@@ -24,7 +24,9 @@ public class Constants {
     public static final String KIT_CMD_GET = "${kit.cmd.get}";
     public static final String KIT_CMD_LIST = "${kit.cmd.list}";
     public static final String KIT_CMD_GIVE = "${kit.cmd.give}";
-    public static final String KIT_CMD_ADMIN = "${kit.cmd.admin}";
+    public static final String KIT_CMD_MGR_HELP = "${kit.cmd.mgr.help}";
+    public static final String KIT_CMD_MGR_NEW = "${kit.cmd.mgr.new.kit}";
+    public static final String KIT_CMD_MGR_DESC = "${kit.cmd.mgr.new.desc}";
 
 }
 /* @this.makes.maven.filtering.work.for.this.file@ */

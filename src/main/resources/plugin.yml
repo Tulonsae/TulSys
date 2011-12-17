@@ -5,29 +5,37 @@ version: ${project.plugin.version}
 
 commands:
   ${kit.cmd.help}:
-    aliases: kithelp
-    description: Command for displaying help.  Player and console use.
+    aliases: ${kit.cmd.help.alias}
+    description: Command for displaying basic kit help.  Player and console use.
     permission: tbd
     usage: /<command> - help list HERE
   ${kit.cmd.get}:
-    aliases: getkit
+    aliases: ${kit.cmd.get.alias}
     description: Command to give kits to yourself.  Player use only.
     permission: tbd
-    usage: /<command> kitname [...] - give yourself named kits, if available and enough inventory space
+    usage: /<command> kitname [...] - give yourself kits (if available and enough inventory space)
   ${kit.cmd.list}:
-    aliases: [kits, listkit, listkits]
+    aliases: ${kit.cmd.list.alias}
     description: Command to list your kits. Player and console use.
     permission: tbd
-    usage: /<command> - list your kits and their availability
+    usage: /<command> - list your kits (and their availability)
   ${kit.cmd.give}:
+    aliases: ${kit.cmd.give.alias}
     description: Command to give kits to others.  Player and console use.
     permission: tbd
-    usage: /<command> playername kitname [...] - give another player the named kits
-  ${kit.cmd.admin}:
-    aliases: kitadm
-    description: Commands for managing kits.  Player and console use.
+    usage: /<command> playername kitname [...] - give another player kits
+  ${kit.cmd.mgr.help}:
+    aliases: ${kit.cmd.mgr.help.alias}
+    description: Command for displaying kit management help.  Player and console use.
     permission: tbd
-    usage: |
-        /<command> new kit_name
-        /<command> add kit_name [num *] item [, [num *] item] ...
-        /<command> tbd
+    usage: /<command> - help list HERE
+  ${kit.cmd.mgr.new.kit}:
+    aliases: ${kit.cmd.mgr.new.kit.alias}
+    description: Command for creating a new kit.  Player and console use.
+    permission: tbd
+    usage: /<command> kitname - create a new kit
+  ${kit.cmd.mgr.new.desc}:
+    aliases: ${kit.cmd.mgr.new.desc.alias}
+    description: Command for adding a new description to a kit.  Player and console use.
+    permission: tbd
+    usage: /<command> kitname - add a new description to a kit
